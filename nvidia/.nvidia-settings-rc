@@ -1,0 +1,53 @@
+#
+# /home/yojan/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
+# Generated on Thu Jan 20 00:02:38 2022
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = No
+ShowQuitDialog = Yes
+UpdateRulesOnProfileNameChange = Yes
+Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+
+# Attributes:
+
+[DPY:DP-1-2]/RedBrightness=0.000000
+[DPY:DP-1-2]/GreenBrightness=0.000000
+[DPY:DP-1-2]/BlueBrightness=0.000000
+[DPY:DP-1-2]/RedContrast=0.000000
+[DPY:DP-1-2]/GreenContrast=0.000000
+[DPY:DP-1-2]/BlueContrast=0.000000
+[DPY:DP-1-2]/RedGamma=1.000000
+[DPY:DP-1-2]/GreenGamma=1.000000
+[DPY:DP-1-2]/BlueGamma=1.000000
+[DPY:DP-1-2]/Dithering=0
+[DPY:DP-1-2]/DitheringMode=0
+[DPY:DP-1-2]/DitheringDepth=0
+[DPY:DP-1-2]/DigitalVibrance=0
+[DPY:DP-1-2]/ColorSpace=0
+[DPY:DP-1-2]/ColorRange=0
+[DPY:DP-1-2]/SynchronousPaletteUpdates=0
+[DPY:HDMI-1-0]/RedBrightness=0.000000
+[DPY:HDMI-1-0]/GreenBrightness=0.000000
+[DPY:HDMI-1-0]/BlueBrightness=0.000000
+[DPY:HDMI-1-0]/RedContrast=0.000000
+[DPY:HDMI-1-0]/GreenContrast=0.000000
+[DPY:HDMI-1-0]/BlueContrast=0.000000
+[DPY:HDMI-1-0]/RedGamma=1.000000
+[DPY:HDMI-1-0]/GreenGamma=1.000000
+[DPY:HDMI-1-0]/BlueGamma=1.000000
+[DPY:HDMI-1-0]/Dithering=0
+[DPY:HDMI-1-0]/DitheringMode=0
+[DPY:HDMI-1-0]/DitheringDepth=0
+[DPY:HDMI-1-0]/DigitalVibrance=0
+[DPY:HDMI-1-0]/ColorSpace=0
+[DPY:HDMI-1-0]/ColorRange=0
+[DPY:HDMI-1-0]/SynchronousPaletteUpdates=0

@@ -1,0 +1,50 @@
+
+
+import:
+  - ~/.config/alacritty/nord.yml
+
+
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 10
+  # The normal (roman) font face to use.
+  normal:
+    family: mononoki Nerd Font 
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: JetBrains Mono Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+    # The italic font face
+  italic:
+    family: JetBrains Mono Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Italic
+  offset:
+    y: 0
+window:
+  padding:
+    x: 10
+    y: 10 
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  blink_interval: 500
+  unfocused_hollow: true
+
+background_opacity: 1
+
+shell:
+  program: /bin/zsh
+
+key_bindings:
+  - { key: Slash,    mods: Control,       chars: "gcc" }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Plus,     mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
