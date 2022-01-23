@@ -1,13 +1,8 @@
 # Dotfiles
 
 
-## Suggestions for a good README
-
-## Name
-
-My Dotfiles
-
 ## Description
+My Sweet Nord dotfiles.
 
 ## Applications Used
 
