@@ -28,7 +28,7 @@ My Dotfiles
 ![screenshot](image/screenshot2.png)
 ![screenshot](image/screenshot3.png)
 ![screenshot](image/screenshot4.png)
-![screenshot](image/screenshot4.png)
+![screenshot](image/screenshot7.png)
 ![screenshot](image/screenshot5.png)
 ![screenshot](image/screenshot6.png)
 
