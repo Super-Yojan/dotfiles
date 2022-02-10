@@ -4,6 +4,8 @@ import:
   - ~/.config/alacritty/nord.yml
     #  - ~/.config/alacritty/nord_light.yml
 # Font configuration (changes require restart)
+#
+live_config_reload: true
 font:
   # The size to use.
   size: 10
