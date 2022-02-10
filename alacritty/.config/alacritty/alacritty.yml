@@ -5,6 +5,8 @@ import:
     #  - ~/.config/alacritty/nord_light.yml
 env:
   TERM: xterm-256color
+
+live_config_realod: true
 # Font configuration (changes require restart)
 font:
   # The size to use.
