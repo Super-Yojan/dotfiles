@@ -1,7 +1,7 @@
 
 
 import:
-  - ~/.config/alacritty/nord.yml
+  - ~/.config/alacritty/dracula.yml
     #  - ~/.config/alacritty/nord_light.yml
 # Font configuration (changes require restart)
 #

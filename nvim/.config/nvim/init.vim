@@ -32,6 +32,7 @@ Plug 'tools-life/taskwiki'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'sbdchd/neoformat'
 Plug 'romgrk/barbar.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
@@ -65,7 +66,7 @@ call plug#end()
 
 
 set termguicolors
-colorscheme nord
+colorscheme dracula
 
 """""""""""""""""""""""""""""""""
 "          Airline             "
