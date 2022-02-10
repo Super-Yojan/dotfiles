@@ -26,6 +26,7 @@ set noswapfile            " disable creating swap file
 
 call plug#begin("~/.config/nvim/plugged")
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'itchyny/calendar.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'tools-life/taskwiki'
 Plug 'blindFS/vim-taskwarrior'
@@ -443,3 +444,11 @@ augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
+
+"""""""""""""""""""""""""""""
+"       Calendar            "
+"""""""""""""""""""""""""""""
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+source ~/.cache/calendar.vim/credentials.vim
