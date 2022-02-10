@@ -7,3 +7,6 @@
 [submodule ".vps/tmux/.tmux/plugins/tpm"]
 	path = .vps/tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "themes/.themes/gtk"]
+	path = themes/.themes/gtk
+	url = https://github.com/catppuccin/gtk.git
