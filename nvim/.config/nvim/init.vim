@@ -32,7 +32,7 @@ Plug 'tools-life/taskwiki'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'sbdchd/neoformat'
 Plug 'romgrk/barbar.nvim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
  Plug 'preservim/nerdcommenter'
@@ -42,6 +42,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " auto complete setup
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
@@ -65,13 +66,14 @@ call plug#end()
 
 
 set termguicolors
-colorscheme nord
+set background=dark
+colorscheme gruvbox
 
 """""""""""""""""""""""""""""""""
 "          Airline             "
 """""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_theme='base16_gruvbox_dark_medium'
 
 """""""""""""""""""""""""""""""""
 "           Dashboard           "
