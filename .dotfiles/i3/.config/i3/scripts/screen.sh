@@ -2,9 +2,10 @@
 
 autorandr -c
 
-/home/yojan/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 
-nitrogen --restore
-
+#nitrogen --restore
+$HOME/.fehbg
+rclone --vfs-cache-mode writes mount "OneDrive":  ~/OneDrive &
 pkill conky
 conky &

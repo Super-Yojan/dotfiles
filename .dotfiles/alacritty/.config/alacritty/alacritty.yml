@@ -2,8 +2,7 @@
 
 import:
   - ~/.config/alacritty/nord.yml
-
-
+    #  - ~/.config/alacritty/nord_light.yml
 # Font configuration (changes require restart)
 font:
   # The size to use.
@@ -16,13 +15,13 @@ font:
 
   # The bold font face
   bold:
-    family: JetBrains Mono Nerd Font
+    family: mononoki Nerd Font
     # Style can be specified to pick a specific face.
     style: Bold
 
     # The italic font face
   italic:
-    family: JetBrains Mono Nerd Font
+    family: mononoki Nerd Font
     # Style can be specified to pick a specific face.
     style: Italic
   offset:
@@ -38,7 +37,7 @@ cursor:
   blink_interval: 500
   unfocused_hollow: true
 
-background_opacity: 1
+window_opacity: 1
 
 shell:
   program: /bin/zsh

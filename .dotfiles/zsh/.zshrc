@@ -1,12 +1,13 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/yojan/.oh-my-zsh"
+export ZSH="/home/drmoscovium/.oh-my-zsh"
 
 # Theme
 ZSH_THEME="nord/nord"
 
-plugins=(git zsh-autosuggestions material-colors zsh-syntax-highlighting ls zsh-dircolors-nord)
+#plugins=(git zsh-autosuggestions material-colors zsh-syntax-highlighting ls zsh-dircolors-nord)
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/themes/$ZSH_THEME.zsh-theme
+
 
 # User configuration
 
@@ -56,7 +57,7 @@ unsetopt PROMPT_SP
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias ls="ll --color=auto"
+alias ls="ls --color=auto"
 alias vim="nvim"
 alias thrust="git push"
 alias succ="git pull"
@@ -66,7 +67,7 @@ alias emerge="sudo pacman -S"
 alias hack="hollywood"
 alias mkdir="mkdir -p"
 
-export PATH="$PATH:/home/yojan/.local/bin/"
+export PATH="$PATH:$HOME/.local/bin/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

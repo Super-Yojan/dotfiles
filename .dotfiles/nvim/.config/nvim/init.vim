@@ -25,6 +25,11 @@ set noswapfile            " disable creating swap file
 
 
 call plug#begin("~/.config/nvim/plugged")
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'wakatime/vim-wakatime'
+Plug 'tools-life/taskwiki'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'sbdchd/neoformat'
 Plug 'romgrk/barbar.nvim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -54,6 +59,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+
 call plug#end()
 
 
@@ -419,3 +425,21 @@ nnoremap <C-n> :CHADopen<CR>
 
 
 
+
+""""""""""""""""""""""""""""""
+"       latex               "
+""""""""""""""""""""""""""""""
+
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_engine = 'pdflatex'
+let g:livepreview_cursorhold_recompile = 0
+
+
+
+""""""""""""""""""""""""""""
+"       formatting          "
+"""""""""""""""""""""""""""""
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
