@@ -67,7 +67,7 @@ alias emerge="sudo pacman -S"
 alias hack="hollywood"
 alias mkdir="mkdir -p"
 
-export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:$HOME/.local/bin/:$HOME/.local/share/nvim/lsp_servers/rust/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

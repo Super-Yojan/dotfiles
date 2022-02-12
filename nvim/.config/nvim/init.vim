@@ -25,6 +25,7 @@ set noswapfile            " disable creating swap file
 
 
 call plug#begin("~/.config/nvim/plugged")
+Plug 'rust-lang/rust.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'itchyny/calendar.vim'
 Plug 'wakatime/vim-wakatime'
@@ -440,10 +441,7 @@ let g:livepreview_cursorhold_recompile = 0
 """"""""""""""""""""""""""""
 "       formatting          "
 """""""""""""""""""""""""""""
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+
 
 """""""""""""""""""""""""""""
 "       Calendar            "
