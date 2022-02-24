@@ -4,10 +4,11 @@ export ZSH="/home/drmoscovium/.oh-my-zsh"
 # Theme
 ZSH_THEME="nord/nord"
 
-#plugins=(git zsh-autosuggestions material-colors zsh-syntax-highlighting ls zsh-dircolors-nord)
 
+source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/$ZSH_THEME.zsh-theme
 
+plugins=(git zsh-autosuggestions material-colors zsh-syntax-highlighting ls zsh-dircolors-nord)
 
 # User configuration
 
