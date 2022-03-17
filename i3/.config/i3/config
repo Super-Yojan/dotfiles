@@ -168,7 +168,7 @@ assign [class="spotify"] $ws10
 
 for_window [class=Alacritty instance="__text_scratchpad"] floating enable
 
-bindsym $mod+g exec ~/.config/i3/scripts/text-scratchpad
+bindsym $mod+g exec ~/.local/bin/notetaker
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

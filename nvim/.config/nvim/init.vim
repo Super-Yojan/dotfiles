@@ -26,10 +26,12 @@ set noswapfile            " disable creating swap file
 
 call plug#begin("~/.config/nvim/plugged")
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'godlygeek/tabular'
+Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'euclio/vim-markdown-composer'
 Plug 'itchyny/calendar.vim'
 Plug 'wakatime/vim-wakatime'
-Plug 'tools-life/taskwiki'
-Plug 'blindFS/vim-taskwarrior'
 Plug 'sbdchd/neoformat'
 Plug 'romgrk/barbar.nvim'
 Plug 'arcticicestudio/nord-vim'
@@ -38,7 +40,6 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
  Plug 'preservim/nerdcommenter'
 Plug 'glepnir/dashboard-nvim'
 Plug 'junegunn/goyo.vim'
-Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -58,6 +59,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
@@ -196,16 +199,12 @@ set completeopt=menu,menuone,noselect
 
 lua <<EOF
   -- Setup nvim-cmp.
-  local cmp = require'cmp'
+local cmp = require'cmp'
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
     mapping = {
@@ -221,37 +220,11 @@ lua <<EOF
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
     })
   })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
-  -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
-  }
 EOF
 
 """""""""""""""""""""""""""""
@@ -317,13 +290,26 @@ nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
-
-
+nnoremap <leader>ne :Telescope file_browser<CR>
+nnoremap <silent> <esc> :noh<cr><esc>
 """""""""""""""""""""""""""""
-"       Vim wiki            "
+"      neuron               "
 """""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/College/MyVault/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
+
+" do not use conceal feature, the implementation is not so good
+let g:vim_markdown_conceal = 0
+
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
 
 """""""""""""""""""""""""""""
 "       Chad Tree           "
@@ -383,3 +369,36 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 source ~/.cache/calendar.vim/credentials.vim
+
+
+let g:markdown_composer_autostart = 0
+
+""""""""""""""""""""""""""""
+"       Telescope           "
+"""""""""""""""""""""""""""""
+lua <<EOF
+-- Telescope Setup
+local action_state = require('telescope.actions.state') -- runtime (Plugin) exists somewhere as lua/telescope/actions/state.lua
+require('telescope').setup{
+  defaults = {
+      prompt_prefix = "$ ",
+      mappings = {
+          i = {
+            ["<c-a>"] = function() print(vim.inspect(action_state.get_selected_entry())) end 
+          }        
+      }
+  }
+}
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('file_browser')
+
+local mappings = {
+    
+}
+mappings.curr_buf = function() 
+  local opt = require('telescope.themes').get_dropdown({height=10, previewer=false})
+  require('telescope.builtin').current_buffer_fuzzy_find(opt)
+end
+return mappings
+
+EOF
