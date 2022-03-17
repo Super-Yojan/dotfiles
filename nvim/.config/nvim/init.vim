@@ -60,7 +60,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 call plug#end()
 
 
@@ -128,14 +128,12 @@ let g:dashboard_custom_header=[
     \]
 
 
+
 """""""""""""""""""""""""""""""""
-"           LSP Config          "
+"       LSP 
 """""""""""""""""""""""""""""""""
-lua << EOF
-require'lspconfig'.rust_analyzer.setup{}
-EOF
-lua << EOF
-local nvim_lsp = require('lspconfig')
+lua <<EOF
+local lsp_installer = require("nvim-lsp-installer")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -170,30 +168,15 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
-  }
-end
-EOF
-
-
-"""""""""""""""""""""""""""""""""
-"       LSP 
-"""""""""""""""""""""""""""""""""
-lua <<EOF
-local lsp_installer = require("nvim-lsp-installer")
-
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
+        }
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
@@ -210,103 +193,6 @@ EOF
 "       Nvim Cmp                "
 """""""""""""""""""""""""""""""""
 set completeopt=menu,menuone,noselect
-
-lua <<EOF
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
-
--- luasnip setup
-local luasnip = require 'luasnip'
-
--- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end,
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
-EOF
-
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  ignore_install = { "javascript" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- list of language that will be disabled
-    disable = { "c", "rust" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true
-  }
-
-}
-
-EOF
 
 lua <<EOF
   -- Setup nvim-cmp.
