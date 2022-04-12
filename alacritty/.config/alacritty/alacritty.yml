@@ -44,7 +44,7 @@ cursor:
 window_opacity: 1
 
 shell:
-  program: /bin/zsh
+  program: /bin/bash
 
 key_bindings:
   - { key: Slash,    mods: Control,       chars: "gcc" }

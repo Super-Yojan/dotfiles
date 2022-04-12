@@ -60,6 +60,7 @@ unsetopt PROMPT_SP
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias ls="ls --color=auto"
 alias vim="nvim"
+alias vi="nvim"
 alias thrust="git push"
 alias succ="git pull"
 alias gangbang="git add ."

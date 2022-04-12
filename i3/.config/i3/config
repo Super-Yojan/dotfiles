@@ -169,6 +169,7 @@ assign [class="spotify"] $ws10
 for_window [class=Alacritty instance="__text_scratchpad"] floating enable
 
 bindsym $mod+g exec ~/.local/bin/notetaker
+bindsym $mod+c exec ~/.local/bin/upfile
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
