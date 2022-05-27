@@ -13,19 +13,19 @@ font:
   size: 10
   # The normal (roman) font face to use.
   normal:
-    family: mononoki Nerd Font 
+    family: Comic Shanns Regular
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: mononoki Nerd Font
+    family: Comic Shanns Regular 
     # Style can be specified to pick a specific face.
     style: Bold
 
     # The italic font face
   italic:
-    family: mononoki Nerd Font
+    family: Comic Shanns Regular
     # Style can be specified to pick a specific face.
     style: Italic
   offset:
@@ -41,7 +41,7 @@ cursor:
   blink_interval: 500
   unfocused_hollow: true
 
-window_opacity: 1
+window_opacity: 0.8
 
 shell:
   program: /bin/bash
