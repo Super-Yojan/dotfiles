@@ -10,7 +10,7 @@ env:
 live_config_reload: true
 font:
   # The size to use.
-  size: 10
+  size: 14
   # The normal (roman) font face to use.
   normal:
     family: Comic Shanns Regular
