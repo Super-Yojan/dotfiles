@@ -10,7 +10,7 @@ env:
 live_config_reload: true
 font:
   # The size to use.
-  size: 14
+  size: 12
   # The normal (roman) font face to use.
   normal:
     family: Comic Shanns Regular
@@ -41,7 +41,7 @@ cursor:
   blink_interval: 500
   unfocused_hollow: true
 
-window_opacity: 0.8
+window_opacity: 1
 
 shell:
   program: /bin/bash
