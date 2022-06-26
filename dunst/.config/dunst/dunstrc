@@ -1,5 +1,5 @@
 [global]
-font = Source Code Pro Medium 10
+font = Comic Shanns 10
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -130,7 +130,7 @@ separator_color = auto
 startup_notification = true
 
 # Browser for opening urls in context menu.
-browser = x-www-browser -new-tab
+browser = librewolf -new-tab
 
 always_run_script = true
 title = Dunst
@@ -163,26 +163,22 @@ history = ctrl+grave
 # Context menu.
 context = ctrl+shift+period
 
+[global]
+frame_color = "#89B4FA"
+separator_color= frame
+
 [urgency_low]
-# IMPORTANT: colors have to be defined in quotation marks.
-# Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#81A1C1"
-foreground = "#81A1C1"
-background = "#2E3440"
-timeout = 5
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_normal]
-frame_color = "#4C566A"
-foreground = "#D8DEE9"
-background = "#2E3440"
-timeout = 5
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_critical]
-frame_color = "#BF616A"
-foreground = "#BF616A"
-background = "#2E3440"
-timeout = 5
-
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
