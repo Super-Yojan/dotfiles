@@ -1,6 +1,0 @@
-require "settings"
-require "plugins"
-require "lsp"
-require "mappings"
-require "autocmds"
-require "commands"
