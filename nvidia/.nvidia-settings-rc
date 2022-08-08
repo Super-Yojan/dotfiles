@@ -1,0 +1,36 @@
+#
+# /home/drmoscovium/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA Settings utility
+# Generated on Sun May 22 00:51:45 2022
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = No
+UpdateRulesOnProfileNameChange = Yes
+Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+
+# Attributes:
+
+[DPY:HDMI-1-0]/RedBrightness=0.000000
+[DPY:HDMI-1-0]/GreenBrightness=0.000000
+[DPY:HDMI-1-0]/BlueBrightness=0.000000
+[DPY:HDMI-1-0]/RedContrast=0.000000
+[DPY:HDMI-1-0]/GreenContrast=0.000000
+[DPY:HDMI-1-0]/BlueContrast=0.000000
+[DPY:HDMI-1-0]/RedGamma=1.000000
+[DPY:HDMI-1-0]/GreenGamma=1.000000
+[DPY:HDMI-1-0]/BlueGamma=1.000000
+[DPY:HDMI-1-0]/Dithering=0
+[DPY:HDMI-1-0]/DitheringMode=0
+[DPY:HDMI-1-0]/DitheringDepth=0
+[DPY:HDMI-1-0]/DigitalVibrance=0
+[DPY:HDMI-1-0]/ColorSpace=0
+[DPY:HDMI-1-0]/ColorRange=0
+[DPY:HDMI-1-0]/SynchronousPaletteUpdates=0

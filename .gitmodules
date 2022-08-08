@@ -1,0 +1,9 @@
+[submodule ".vps/tmux/.tmux/plugins/nord-tmux"]
+	path = .vps/tmux/.tmux/plugins/nord-tmux
+	url = https://github.com/arcticicestudio/nord-tmux
+[submodule ".vps/tmux/.tmux/plugins/tmux-sensible"]
+	path = .vps/tmux/.tmux/plugins/tmux-sensible
+	url = https://git::@github.com/tmux-plugins/tmux-sensible
+[submodule ".vps/tmux/.tmux/plugins/tpm"]
+	path = .vps/tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
